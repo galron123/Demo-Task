@@ -1,0 +1,7 @@
+port: 8081
+log:
+  level: debug
+app:
+  name: paloTask
+mongodb:
+  uri: mongodb://localhost:27017/paloTask

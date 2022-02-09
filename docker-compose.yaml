@@ -1,0 +1,23 @@
+version: '3.0'
+
+services:
+  palo-manager:
+    container_name: palo-manager
+    build: .
+    environment:
+    - DATABASE_URL=mongodb://mongodb:27017/palo-manager
+    ports:
+      - 8080:8080
+    depends_on:
+      - mongodb
+
+  mongodb:
+    hostname: mongodb
+    container_name: mongodb
+    image: mongo:latest
+    environment:
+      - MONGO_INITDB_DATABASE=database
+    ports:
+      - 27017:27017
+    volumes:
+      - '~/data/mongodb:/data/db'
