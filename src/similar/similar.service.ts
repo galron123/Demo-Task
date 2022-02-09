@@ -13,7 +13,7 @@ let obj;
 const readFromFile = async () => {
   const dict = {};
   const data = await fs.readFile(
-    'words_clean.txt',
+    'https://raw.githubusercontent.com/galron123/Palo-Task/main/words_clean.txt',
     'utf8',
   );
   const words = data.split('\n');
