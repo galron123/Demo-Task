@@ -11,7 +11,7 @@ export let totalTime = 0;
 export let size;
 const readFromFile = async () => {
   let dict = {};
-  const data = await fs.readFile('/home/galron/Desktop/words_clean.txt', 'utf8');
+  const data = await fs.readFile('https://github.com/galron123/Palo-Task/blob/main/words_clean.txt', 'utf8');
   let words = data.split("\n");
   size = words.length;
   for (let i = 0; i < words.length; i++) {
