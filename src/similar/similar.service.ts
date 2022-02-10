@@ -13,28 +13,21 @@ let obj;
 const readFromFile = async () => {
   const dict = {};
   const data = await fs.readFile(
-    'https://raw.githubusercontent.com/galron123/Palo-Task/main/words_clean.txt',
+    '/home/galron/Desktop/words_clean.txt',
     'utf8',
   );
   const words = data.split('\n');
   size = words.length;
   for (let i = 0; i < words.length; i++) {
-    dict[words[i]] = [];
-    for (let j = 0; j < words.length; j++) {
-      if (i != j && arePermutation(words[i], words[j])) {
-        dict[words[i]].push(words[j]);
-      }
+    const sortedWord = words[i].split('').sort();
+    if (!dict[sortedWord]) {
+      dict[sortedWord] = [];
     }
+    dict[sortedWord].push(words[i]);
   }
   return dict;
 };
 
-function arePermutation(a, b) {
-  if (a.length !== b.length) {
-    return false;
-  }
-  return a.split('').sort().join() === b.split('').sort().join();
-}
 export let data;
 (async () => {
   data = await readFromFile();
@@ -42,8 +35,9 @@ export let data;
 
 export const permutation = async (word) => {
   const startTime = Date.now();
+  const sortedWord = word.split('').sort();
   try {
-    obj = { similar: data[word] };
+    obj = { similar: data[sortedWord] };
   } catch (err) {
     throw new HttpException(`There is no such file: ${err}`, 400);
   }
@@ -51,7 +45,7 @@ export const permutation = async (word) => {
   totalTime += endTime - startTime;
   requestsCounter++;
   const results = JSON.stringify(obj);
-  if (!data[word]) {
+  if (!data[sortedWord]) {
     throw new HttpException(
       `There are no similar words for this word: ${word}`,
       404,
