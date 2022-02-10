@@ -13,7 +13,7 @@ let obj;
 const readFromFile = async () => {
   const dict = {};
   const data = await fs.readFile(
-    '/home/galron/Desktop/words_clean.txt',
+    './words_clean.txt',
     'utf8',
   );
   const words = data.split('\n');
