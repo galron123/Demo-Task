@@ -28,8 +28,8 @@ $ npm run start
 
 ## Notibal APIs
 * Swagger
-    * UI: ```localhost:8080/api```
+    * UI: ```localhost:8000/api```
     * openapi json spec ```localhost:8080/api-json```
 * Root API
-    * ```localhost:8080/api/v1/similar```
-    * ```localhost:8080/api/v1/stat```
+    * ```localhost:8000/api/v1/similar```
+    * ```localhost:8000/api/v1/stat```
