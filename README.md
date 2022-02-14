@@ -20,8 +20,6 @@ $ npm install
 ```bash
 # development
 
-# start mongodb docker
-$ docker-compose up -d mongodb
 #start service locally, without docker
 $ npm run start 
 ```
