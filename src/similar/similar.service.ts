@@ -42,7 +42,7 @@ export const permutation = async (word) => {
     const sortedWord = word.split('').sort();
     let resArray = data[sortedWord];
     if (resArray && resArray.length != 0) {
-        resArray.filter(item => item !== word)
+        resArray = resArray.filter(item => item !== word)
     } else {
         throw new HttpException(
             `There are no similar words for this word: ${word}`,
