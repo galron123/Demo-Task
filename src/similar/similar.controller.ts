@@ -1,4 +1,4 @@
-import { Controller, Get, Headers, Param } from '@nestjs/common';
+import {Controller, Get, Headers, Query} from '@nestjs/common';
 import { ApiResponse, ApiTags, ApiHeaders } from '@nestjs/swagger';
 import { permutation } from './similar.service';
 
@@ -18,12 +18,13 @@ import { permutation } from './similar.service';
 export class SimilarController {
   constructor() {}
 
-  @Get(':word')
+
+  @Get()
   @ApiResponse({ status: 200, description: 'Success: Returns similar words' })
   @ApiResponse({ status: 400, description: 'Bad input' })
   @ApiResponse({ status: 404, description: 'There is no similar word' })
   permutation(
-    @Param('word') word: string,
+    @Query('word') word: string,
     @Headers('x-reality-id') realityID = '0',
   ) {
     return permutation(word);
