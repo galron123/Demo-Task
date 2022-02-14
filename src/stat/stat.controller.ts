@@ -12,17 +12,6 @@ import {stats} from './stat.service';
 
 
 @ApiTags('stat')
-@ApiHeaders([
-  {
-    name: 'x-reality-id',
-    description: 'The id of he reality that is being queried',
-    example: '0',
-    required: false,
-    schema: {
-      default: '0',
-    },
-  },
-])
 @Controller('stat')
 export class StatController {
   constructor(
