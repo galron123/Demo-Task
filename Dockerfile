@@ -7,9 +7,7 @@ COPY package.json .
 FROM base AS development
 
 ENV NODE_ENV development
-#Next line will create npmrc with our private repository 
-#JENKINS
-# install node packages
+
 RUN npm install glob rimraf
 
 RUN npm install
